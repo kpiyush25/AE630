@@ -1,0 +1,18 @@
+p=1:2:16; % Used 2 as increment between two consecutive elements. I could have used another value as well.
+thrust = zeros(1,8); % A vector of size 8(which comes out as we divide the maximum pitch angle by the 
+                     % spacing used(2 here)) containing zeros initially.
+power = zeros(1,8);  % A vector of size 8(explanation as above) containing zeros initially. 
+for i=1:8
+    [thrust(i), power(i)]=BEMT(p(i),1500,0.355,0.032,2,5.73,0.01,100,1.225);
+end
+% When we have to plot the power vs pitch angle then below 3 lines have to
+% be commented and to be uncommented otherwise.
+open('thrust_expt.fig'); % This is the graph containing experimental values.
+hold on
+plot(p,thrust,'o');
+
+% When we have to plot the thrust vs pitch angle then below 3 lines have to
+% be commented and to be uncommented otherwise.
+% open('power_expt.fig'); % This is the graph containing experimental values.
+% hold on
+% plot(p,power,'o');
